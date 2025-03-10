@@ -1,0 +1,63 @@
+@import "media-mixin";
+
+.abf {
+  &-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    align-items: flex-start;
+    padding-top: 10rem;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+
+  &-container {
+    background: #fff;
+    padding: rem(24) rem(36);
+    border-radius: rem(8);
+    text-align: center;
+    box-shadow: 0 rem(4) rem(16) rgba(0, 0, 0, 0.1);
+    max-width: rem(400);
+    width: 90%;
+    display: grid;
+    gap: rem(16);
+  }
+
+  &-shield-icon {
+    width: rem(64);
+    height: rem(64);
+    fill: var(--global-palette1);
+  }
+
+  &-check-text {
+    color: #333;
+    font-size: rem(16);
+    margin: rem(12) 0;
+  }
+
+  &-verify-button {
+    background: ar(--global-palette1);;
+    color: white;
+    border: none;
+    padding: rem(12) rem(24);
+    border-radius: rem(6);
+    cursor: pointer;
+    font-size: rem(16);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+  }
+}

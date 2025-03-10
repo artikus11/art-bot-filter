@@ -1,0 +1,144 @@
+@use 'sass:math';
+
+@mixin max_1280 {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin max_1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin max_768 {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin max_719 {
+  @media (max-width: 719px) {
+    @content;
+  }
+}
+
+@mixin max_700 {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin max_600 {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin max_480 {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin max_350 {
+  @media (max-width: 350px) {
+    @content;
+  }
+}
+
+@mixin min_350 {
+  @media (min-width: 350px) {
+    @content;
+  }
+}
+
+@mixin min_480 {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin min_600 {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin min_700 {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin min_768 {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+
+@mixin min_979 {
+  @media (min-width: 979px) {
+    @content;
+  }
+}
+
+@mixin min_1024 {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin min_1170 {
+  @media (min-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin min_1280 {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin min_1600 {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin min_1920 {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+
+@mixin fluid-text($max: 48, $min: 16) {
+  $maxViewportWidth: 1400;
+  $minViewportWidth: 360;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  font-size: clamp(
+          #{$minSize * 1rem},
+          #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+          #{$maxSize * 1rem}
+  );
+}
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.'
+  }
+}

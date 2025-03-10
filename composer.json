@@ -1,0 +1,14 @@
+{
+    "name": "art/bot-filter",
+    "autoload": {
+        "psr-4": {
+            "Art\\BotFilter\\": "src/php/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Artem Abramovich"
+        }
+    ],
+    "require": {}
+}
